@@ -5,6 +5,8 @@
 #include <IRrecv.h>
 #include <IRutils.h>
 #include <sstream>
+#include "ActionFunctions.h"
+#include "StateClass.h"
 
 int RECV_PIN = 4; //an IR detector/demodulatord is connected to GPIO pin 2
 IRrecv irrecv(RECV_PIN);
@@ -24,12 +26,12 @@ char foundname[20];
 boolean isPaused = false;
 uint8_t volume = 10;
 int lastRemoteVal = 0;
+State CurrentState (false, 10, 0);
 
 void setup() {
   Serial.begin(115200);
 
   Serial.println("\n\nAdafruit VS1053 Feather Test");
-  
   if (! musicPlayer.begin()) { // initialise the music player
      Serial.println(F("Couldn't find VS1053, do you have the right pins defined?"));
      while (1);
