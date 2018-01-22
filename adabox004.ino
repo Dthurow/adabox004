@@ -6,7 +6,8 @@
 #include <IRutils.h>
 #include <sstream>
 #include "ActionFunctions.h"
-#include "StateClass.h"
+#include "Classes.h"
+#include <string>
 
 int RECV_PIN = 4; //an IR detector/demodulatord is connected to GPIO pin 2
 IRrecv irrecv(RECV_PIN);
